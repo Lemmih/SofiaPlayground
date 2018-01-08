@@ -478,69 +478,166 @@ class Counter extends Component {
 
 // I'm trying to link the code, I don't know if it's a right way to think
 
+// As an exercise, let's rename the 'txt' variable. What's your guess on how to do that?
+// I don't understand "rename the 'txt' variable"
+// Can you be more specific? What don't you understand? Do you know what renaming is?
+// change the name
+// Yes, so we want to change the name of the 'txt' variable.
+// Do you see that the code below is using a variable called 'txt'?
+// Yes
+// Do you understand what we want to do now? You don't have to understand /how/, just have to understand /what/ we want.
+// Yes, that would be part of it. Can you guess what else you have to do?
+// Let's try to do it. Let's rename it to 'myText'
+// Good so far. You can always try the app in the browser if you're in doubt
+// whether it's done or not.
+// Does the app work in the browser? - I think so
+// Does the number increase correctly as you type in the input field?
+// a moment, it's still with "txt" in the input
+// Did you run 'yarn start' ?
+// If so, reload the browser window.
+// I can't type character in the field
+// Good, that means we're not done with the renaming.
+// Does it work now?
+// Yes
+// Good. Working like this (making a change, checking it in the browser, going back to make another small change)
+// is very common. We will be doing it a lot. Never be afraid to break things.
+// Always just guess and then check out the result in the browser.
+
+// {} switches from HTML to JavaScript. Anything that goes inside {} will
+// be JavaScript.
+
+// so we're writing javascript or html?
+// We're writing both. We can switch between the two languages.
+// Out here is Javascript.
+// The 'render' function is a JavaScript function that returns some HTML.
+
 class Length extends Component {
   state = {
-    txt: ""
+    myText: ""
   };
 
   handleChange = evt => {
-    this.setState({ txt: evt.target.value });
+    this.setState({ myText: evt.target.value });
   };
 
   render() {
-    const { txt } = this.state; // This line defines the 'txt' variable.
-    const N = txt.length; // This line defines the 'N' variable.
+    const { myText } = this.state; // This line defines the 'txt' variable.
+    const N = myText.length; // This line defines the 'N' variable.
     return (
       <span>
-        <input value={"txt"} onChange={this.handleChange} />
-        {
-          //          ^^^^^^^^^^^ is this related to line 492? if not, how to do N=txt.length?
-          // "input" , so I can see the rectangle and type character's, right?
-          // Yes, the 'input' tag creates an input field.
-          // 'txt' refers to the variable defined on line 492. Do you see how line 492 defines a variable called 'txt'?
-          // so I can't say {txt} = this.state?
-          // Do you mean in Javascript or in HTML? They are two different languages with two different sets of rules.
-          // It's important you never confuse the two.
-          // can line 496 value={"txt"} that "txt" be changed to other characters?
-          // "txt" is a string. It always has the same value.
-          // I don't get it.
-          // Do you understand the difference between "txt" (a string) and 'txt' (a variable)?
-          // change my question: can line 484,488,492,493 "txt" be named by other characters?
-          // Yes, 'txt' is a variable that we defined. We can always change the names of variables that we define ourselves.
-          // then please try to avoid this afterwards, the same 'txt' made me confused a lot
-          // What same txt?
-          // I've asked many times.... line 496 value={txt} is that {txt} related to line 492
-          // It /is/ related. {txt} refers to the variable defined on line 492.
-          // then why can't say txt=this.state?
-          // Where do you want to write that? In Javascript or in HTML? Show me the line where you want to write that.
-          // or const { txt } = this.state is only the right way to say?
-          // Would it be easier to understand if we removed in the 'const' declarations?
-          // They aren't necessary. They never are. They just make the code prettier.
-          // Now the code doesn't use 'const' anymore.
-          // ....this just showed what I was thinking was right.... I was more confused when you tried to explain.
-          // Great. Do you see why <input value={"txt"}/> would always be fixed to the same string?
-          // it has to make "N" work
-          // Actually, let's just try with value={"txt"}. I think it's much easier to understand
-          // if it actually see what it does.
-          // Run the code and try to enter code text in the input field.
-          // can't enter
-          // Exactly. Do you understand why? It has to do with the difference between: txt and "txt"
-          //Oh, I think I see.
-          // When you said:
-          //  // can line 496 value={"txt"} that "txt" be changed to other characters?
-          // You didn't actually mean anything by the quotes.
-          // ......yeah....I also noticed
-          // You have to fairly careful with that. The quotes changes the meaning a lot.
-          // You can go shower now. :P
-          // I feel it'll take years for me to understand
-          // It won't.
-        }
+        <input value={myText} onChange={this.handleChange} />
         Input has {N} characters
       </span>
     );
   }
 }
 
+// Let's write a TODO list component.
+// This component should show a list of items.
+// Each item should be deletable.
+// New items should be added from a text field.
+// We will be creating several components to solve this problem.
+
+// Step one: Create a component to show the list of TODO items. Let's call it ShowTodos
+
+// Let's make it such that ShowTodos doesn't have any state. It only displays the
+// TODO items.
+// ShowTodos is a component that takes a list of TODOs and renders them.
+// It gets the TODOs from the properties.
+// Let's add some default properties. How do we add default properties?
+// Maybe look at the other components that we wrote. Copying from previous code
+// is a very common technique.
+// Did we add default properties to any of the previous components?
+// I remember we talked about default properties
+// You don't have to remember. It's OK to look at the code again. Do you see
+// anything about default properties?
+
+// I don't understand what is good or bad defaultProps
+// Ok, let's start with the type. What should the type be?
+
+// string? text?
+// How would you handle multiple TODO items? Imagine the TODO items are "Take out the trash" and "Feed the dog".
+// Let's try to use those as the defaults. How would you do that? Think aloud. Making (wrong) guesses is completely OK.
+// Thinking aloud helps me understand where your brain is at.
+
+// I'd just write the texts, which means "Take out the trash"
+// Then write it! That's a great idea. Go for it. Good, write it. Go ahead and write it in the code.
+
+class ShowTodos extends Component {
+  // In HTML, you can use <ul> and <li> to make lists. Like this:
+  // <ul>
+  //   <li>First list element</li>
+  //   <li>Second list element</li>
+  // </ul>
+  // ul = unordered list
+  // li = list item
+  render() {
+    // So far, so good.
+    // Now, let's try to use variables instead of plain HTML strings for the TODO items.
+    // Can you guess how to move the HTML strings into variables?
+    // How do we define a variable? - use const?
+    // Show me how. Define anything. Do we use parenthesies?
+    // It's OK to copy code you've written before. - I know
+    // It's a good thing to copy code you've written before. It helps you learn. It's not cheating or anything.
+    // You've never used parenthesies here before. You've never used () here before.
+
+    // let's use lower case names for variables. Good.
+    // Now, do you remember how to use a JavaScript variable in HTML?
+
+    const list = ["Take out the trash", "Feed the dog"];
+
+    // Ok, now let's get rid of 'list1', we don't need it anymore. Excellent.
+    // Now we're gonna learn about 'map'.
+    // The 'map' function does a thing for each element in a list.
+    // [1,2,3].map(x => x+1)    === [2,3,4]
+    // list.map(x => x.length)  === [18, 12]
+
+    // We want to use map to create the <li> elements.
+    // Does the browser output make sense?
+    // No. I'm trying to figure out .map
+    // What is the browser output? What do you see? Often, describing it helps to understand it.
+    // it shows twice take out the trash and feed the doing
+    // Right.
+    // So it should show the list once because of line 606+607, right?
+    // I don't understand what you meant once
+    // The list of todo items is "take out..." and "feed ...", right?
+    // We show that list twice. - I still don't understand how the code line 608 make sense to me
+    // Can you see which output it generates? Which of the lines in the browser
+    // came from the 'map' ? - no
+    // This won't work.Comments are weird when we start to mix JavaScript and HTML.
+    // Now my problem is I don't understand {list.map(todoItem => <li>{todoItem}</li>)}
+    // Do you understand the other map examples? - Yes
+    // [1,2,3].map(x => x+1)                        === [2,3,4]
+    // list.map(x => x.length)                      === [18, 12]
+    // list.map(todoItem => <li>{todoItem}</li>)    === list.map(x => <li>{x}</li>)
+    // list.map(x => <li>{x}</li>)                  === [__, __]
+    // It's an array of length 2. Now we have the general structure of the result
+    // but we still don't want what to put in the two holes.
+    // I don't understand <li>{x}</li>, why can't it be just x, or {x}
+    // Do you understand the difference between:
+    //   <li>{list[0]}</li> - Html and javascript
+    // and
+    //   {list[0]} - only javascript
+    // ?
+    // Well, that's true but they're also different in another way.
+    // The first line creates an li element.
+    // The second line does not - do you mean the dot showed in browser
+    // Yes, it is shown as a dot in the browser.
+    // I'm talking about this thing: <li></li> - understand
+    // So if we wrote: list.map(x => x)
+    // then we wouldn't get the <li></li> part. And we need that part. -  i see
+
+    return (
+      <ul>
+        {list.map(todoItem => <li>{todoItem}</li>)}
+        <li>{list[0]}</li>
+        <li>{list[1]}</li>
+      </ul>
+    );
+  }
+}
+// I called ShowTodos from App. Do you see it in the browser?
+// Yes. I saw that in the browser. I was about to do that.
 class App extends Component {
   render() {
     return (
@@ -549,6 +646,9 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
+        <p className="App-intro">
+          <ShowTodos />
+        </p>
         <p className="App-intro">
           <Length />
         </p>
