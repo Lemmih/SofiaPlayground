@@ -572,72 +572,146 @@ class ShowTodos extends Component {
   // ul = unordered list
   // li = list item
   render() {
-    // So far, so good.
-    // Now, let's try to use variables instead of plain HTML strings for the TODO items.
-    // Can you guess how to move the HTML strings into variables?
-    // How do we define a variable? - use const?
-    // Show me how. Define anything. Do we use parenthesies?
-    // It's OK to copy code you've written before. - I know
-    // It's a good thing to copy code you've written before. It helps you learn. It's not cheating or anything.
-    // You've never used parenthesies here before. You've never used () here before.
+    //const list = ["Take out the trash", "Feed the dog"];
+    // Let's remove the unnecessary code. Now we only have the 'map'.
+    // Next, let's get the list of TODO items from the properties instead.
+    // How do we do this?
+    // use this.props?
+    // Try it.
+    // Ok, does it work? (and what does it mean to 'work'?)
+    // not working in browser
+    // What happens in the browser? What does it say?
+    // two 'list'
+    // Did you run 'yarn start' ? It's a good idea to close the browser window
+    // when we're done for the day. That way, you don't forget to run 'yarn start'.
 
-    // let's use lower case names for variables. Good.
-    // Now, do you remember how to use a JavaScript variable in HTML?
+    // Excellent. This is really good. This is part of normal programming.
+    // Now, how do we fix the error?
+    // I don't know
+    // So the errors says that 'list' was declared twice. It even tells you where.
+    // Is it correct? If so, can we remove one of the declarations?
+    // Don't we need that one? Is there another one we can delete?
+    // Great. That makes the error go away, right?
+    // Now we probably get a new error. That is completely normal and good.
 
-    const list = ["Take out the trash", "Feed the dog"];
+    // Do you see the new error? Good.
+    // That error means that 'list' is not set in 'this.props'.
+    // Let's set the value. We do that when we call <ShowTodos/>
+    // Let's change it to: <ShowTodos list={ ["Feed the dog"] } /> - change what to <Show...?
+    // Do you see where we have written <ShowTodos/> ? In the App component. 621
+    // Yeah. Let's add a property to that call.
+    // Recall, HTML element have properties. For example:
+    //  <img src={logo}/>
+    // Here 'src' is a property.
+    // Are you thinking or are you waiting for something? waiting
+    // What are you waiting for? for you to explain what to do
+    // Ok, the problem is that the 'list' property is undefined, right? That's what the browser told us.
+    // Now, we know that we can add properties when calling components.
+    // So, let's add the list property to the call of <ShowTodos /> - ok, I don't know how to do
+    // Did you see how 'src' is a property of 'img' ?
+    // Try adding 'src' as a property to <ShowTodos/>. (This won't do anything, I just want you to practice adding properties)
+    // You've done this before. This is the same as the 'mass' property for <Weight/>
 
-    // Ok, now let's get rid of 'list1', we don't need it anymore. Excellent.
-    // Now we're gonna learn about 'map'.
-    // The 'map' function does a thing for each element in a list.
-    // [1,2,3].map(x => x+1)    === [2,3,4]
-    // list.map(x => x.length)  === [18, 12]
+    // Great. Now, what should that property have as a value?
+    // I don't understand the english statemetn and don't understand 'have as a value' mean
+    // What did I suggest above?
+    // You don't see what I suggested or you don't see what properties can have values?
 
-    // We want to use map to create the <li> elements.
-    // Does the browser output make sense?
-    // No. I'm trying to figure out .map
-    // What is the browser output? What do you see? Often, describing it helps to understand it.
-    // it shows twice take out the trash and feed the doing
+    // Ok, a 'property' is a thing that has a /name/ and a /value/.
+    // For example:
+    //   <Weight mass="67"/>
+    // Here, there's a property called 'mass' with the value '67'.
+    // Do you accept that? (Don't try to understand it. Just accept it.)
+    // A 'property' is a thing that has a /name/ and a /value/. ok
+
+    // We want to add a property called 'list' to the call <ShowTodos/>
+    // You already did that. Which is very good.
+    // Now we have a property with a name but with no value. Right? yes
+
+    // In the text above, I suggested a value for the property. I'll paste it again:
+    //     list={ ["Feed the dog"] }
+    // Here, we use {} to switch back into JavaScript and then write an array.
+
+    // Is the the value that I suggested?
+    // Do you see a difference:
+    //   list="Feed the dog"
+    //   list={ ["Feed the dog"] }
+    // wouldn't this be the same in browser?
+    // No. Remember that we use 'map' on the 'list'.
+    // 'map' /only/ works for arrays.
+
+    // This is invalid:
+    // "Feed the dog".map(...)
+    // This is correct:
+    // ["Feed the dog"].map(...)
+
+    // ok, I think I just wish you tell the reason why you suggest
+    // you said I focus on unnessary parts sometimes
+    // Trying out difference things from what I suggest is completely fine
+    // and a good way to learn. Just remember that you aren't stuck if you
+    // haven't tried the suggestion. (And always be consciously aware when
+    // you're trying something new. Sometimes it seems you do it by accident.)
+    // ok
+
+    // I don't think we have time to make the other component today.
+    // You should create a new patch now. The comment message could be 'Finished ShowTodos'.
+
+    //.....showtodo is done?
+
+    // Pretty much. - how =.= Well, almost.
+    // Next we'll write a component for keep track of TODO items and for adding new TODO items.
+    // This new component will call ShowTodos.
+    // I don't understand..... line 671 this.props just like that? nothing else for it?
+    // We used that pattern before. Do you understand the other times we used it
+    // or are they all confusing?
+    // These are the other times we used that pattern:
+    //    const { mass } = this.props;
+    //    const { children } = this.props;
+    // I think maybe I don't fully understand the part of class APP extends Com.... doing
+    // Is this a different issue from 'this.props'?
+    // Did we resolve the 'this.props' confusion? - I think it's related issue
+    // In App, it called ShowTodos, right?
     // Right.
-    // So it should show the list once because of line 606+607, right?
-    // I don't understand what you meant once
-    // The list of todo items is "take out..." and "feed ...", right?
-    // We show that list twice. - I still don't understand how the code line 608 make sense to me
-    // Can you see which output it generates? Which of the lines in the browser
-    // came from the 'map' ? - no
-    // This won't work.Comments are weird when we start to mix JavaScript and HTML.
-    // Now my problem is I don't understand {list.map(todoItem => <li>{todoItem}</li>)}
-    // Do you understand the other map examples? - Yes
-    // [1,2,3].map(x => x+1)                        === [2,3,4]
-    // list.map(x => x.length)                      === [18, 12]
-    // list.map(todoItem => <li>{todoItem}</li>)    === list.map(x => <li>{x}</li>)
-    // list.map(x => <li>{x}</li>)                  === [__, __]
-    // It's an array of length 2. Now we have the general structure of the result
-    // but we still don't want what to put in the two holes.
-    // I don't understand <li>{x}</li>, why can't it be just x, or {x}
-    // Do you understand the difference between:
-    //   <li>{list[0]}</li> - Html and javascript
-    // and
-    //   {list[0]} - only javascript
-    // ?
-    // Well, that's true but they're also different in another way.
-    // The first line creates an li element.
-    // The second line does not - do you mean the dot showed in browser
-    // Yes, it is shown as a dot in the browser.
-    // I'm talking about this thing: <li></li> - understand
-    // So if we wrote: list.map(x => x)
-    // then we wouldn't get the <li></li> part. And we need that part. -  i see
+    // in ShowTodos, list is a name of a property
+    // Right. That's exactly right.
+    // I think I'm confused about App calls ShowTodos
+    // Right, App calls ShowTodos. With the property list={["Feed ..."]}.
+    // I think I'll just let it go....
+    // Do you think it'll be a problem in the future?
+    // Is there something you don't know how to do that you think you should be able to do?
+    // I don't quite know what I should be able to do now |O|
+    // You know how to get properties out of this.props, right? (You've done it many times now. It's not a trick question.)
+    // yeah, I guess so
+    // And you know how to set those properties when calling a component, right? (Again, not a trick question. And you've done it several times.)
+    // I'd like your answer to the above question.
+    // yeah, I guess so
+    // So you know how to get properties and you know how to set properties.
+    // Then you know everything about properties. There really isn't more to it.
+    // You have a complete understanding of properties.
+    // ok
+    // Properties are things with a name and a value. You can set them one place in
+    // the code and read them in another place. There's nothing more to it.
+    // ok
 
-    return (
-      <ul>
-        {list.map(todoItem => <li>{todoItem}</li>)}
-        <li>{list[0]}</li>
-        <li>{list[1]}</li>
-      </ul>
-    );
+    // This is a trick question:
+    // "0"==0           ===  True
+    // []==0            ===  True    // does this mean the array is empty, so it's 0?
+    // It means that JavaScript is weird and you shouldn't use the '==' function. ok
+    // "0"==[]          ===  False   // JavaScript is really weird sometimes. This is one of those cases.
+
+    // I'll go shower
+    // See you tomorrow. Today we managed to write -2 lines of code. :)
+    // I wonder how it'd have been like if we did this in person
+    // D: accept it
+    // C: No, I don't understand |O|
+    // Much easier I think.
+
+    const { list } = this.props;
+
+    return <ul>{list.map(todoItem => <li>{todoItem}</li>)}</ul>;
   }
 }
-// I called ShowTodos from App. Do you see it in the browser?
-// Yes. I saw that in the browser. I was about to do that.
+
 class App extends Component {
   render() {
     return (
@@ -647,7 +721,7 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <p className="App-intro">
-          <ShowTodos />
+          <ShowTodos list={["Feed the dog"]} />
         </p>
         <p className="App-intro">
           <Length />
