@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
-// Excellent.
-// Excellent.
+// Portal  a96c4c56-0620-456f-8055-20e3d2896361
 
 // React is a framework for creating websites. That means that we're creating HTML
 // documents.
@@ -18,12 +17,6 @@ import "./App.css";
 // Let's try editing this file and see the website update automatically.
 // Change the text in the <p></p> to say something different.
 
-// It looks the same to me
-// Did you save the file? Also, you can't write comments in the HTML code.
-
-// oh...
-// It works now
-
 // Let's talk a little bit about React and how it is designed.
 // In React, the components we define act just like HTML objects/tags.
 // Let's try it out. Let's define a new component called 'Bold'.
@@ -33,11 +26,6 @@ import "./App.css";
 // Hm, no, let's start simple. Just return something in bold.
 // <b> is the HTML tag for 'bold', btw.
 // Does it make sense?
-
-// I don't see Hello! World!
-// Right, becaues we're not using the 'Bold' class anywhere.
-// Let's go use it in 'App.'
-// There's no such thing as 'bold'.
 
 // Ok, now we know how to define and use components.
 // Let's try to put something INSIDE a component.
@@ -164,9 +152,6 @@ import "./App.css";
 // then use const{children}= this.props
 // thanks, then can use "//" to hide it, right?
 
-// hello? np
-// Sorry, was away.
-
 // I got simple if, else. how about const now?
 // 'const' declares a constant variable. Like:
 // const three = 3;
@@ -199,10 +184,6 @@ import "./App.css";
 // When we use curly brackets, we get code instead of text.
 // We could write: {10+5} and get '15'.
 // So {children} is code that refers to the variable 'children'.
-
-// Anything that causes confusion?
-// no
-// Ok, let's try another component.
 
 // David's weight
 // This component will get a property called 'mass'. We would like it to show:
@@ -312,8 +293,6 @@ class Bold extends Component {
 // David weighs undefined kg.
 // Great, so 'mass' is undefined when we didn't define it.
 // Is anything confusing?
-
-// Is anything confusing about the code? Does it give the result you expect it to?
 
 // If everything makes sense, let's move on to default properties.
 
@@ -701,13 +680,8 @@ class ShowTodos extends Component {
 
     // I'll go shower
     // See you tomorrow. Today we managed to write -2 lines of code. :)
-    // I wonder how it'd have been like if we did this in person
-    // D: accept it
-    // C: No, I don't understand |O|
-    // Much easier I think.
 
     const { list } = this.props;
-
     return <ul>{list.map(todoItem => <li>{todoItem}</li>)}</ul>;
   }
 }
