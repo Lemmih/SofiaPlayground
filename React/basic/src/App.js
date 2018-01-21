@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
-// Portal  a96c4c56-0620-456f-8055-20e3d2896361
+// Portal  7101e515-1269-4f53-85fa-c88fbd145c02
 
 // React is a framework for creating websites. That means that we're creating HTML
 // documents.
@@ -551,138 +551,90 @@ class ShowTodos extends Component {
   // ul = unordered list
   // li = list item
   render() {
-    //const list = ["Take out the trash", "Feed the dog"];
-    // Let's remove the unnecessary code. Now we only have the 'map'.
-    // Next, let's get the list of TODO items from the properties instead.
-    // How do we do this?
-    // use this.props?
-    // Try it.
-    // Ok, does it work? (and what does it mean to 'work'?)
-    // not working in browser
-    // What happens in the browser? What does it say?
-    // two 'list'
-    // Did you run 'yarn start' ? It's a good idea to close the browser window
-    // when we're done for the day. That way, you don't forget to run 'yarn start'.
-
-    // Excellent. This is really good. This is part of normal programming.
-    // Now, how do we fix the error?
-    // I don't know
-    // So the errors says that 'list' was declared twice. It even tells you where.
-    // Is it correct? If so, can we remove one of the declarations?
-    // Don't we need that one? Is there another one we can delete?
-    // Great. That makes the error go away, right?
-    // Now we probably get a new error. That is completely normal and good.
-
-    // Do you see the new error? Good.
-    // That error means that 'list' is not set in 'this.props'.
-    // Let's set the value. We do that when we call <ShowTodos/>
-    // Let's change it to: <ShowTodos list={ ["Feed the dog"] } /> - change what to <Show...?
-    // Do you see where we have written <ShowTodos/> ? In the App component. 621
-    // Yeah. Let's add a property to that call.
-    // Recall, HTML element have properties. For example:
-    //  <img src={logo}/>
-    // Here 'src' is a property.
-    // Are you thinking or are you waiting for something? waiting
-    // What are you waiting for? for you to explain what to do
-    // Ok, the problem is that the 'list' property is undefined, right? That's what the browser told us.
-    // Now, we know that we can add properties when calling components.
-    // So, let's add the list property to the call of <ShowTodos /> - ok, I don't know how to do
-    // Did you see how 'src' is a property of 'img' ?
-    // Try adding 'src' as a property to <ShowTodos/>. (This won't do anything, I just want you to practice adding properties)
-    // You've done this before. This is the same as the 'mass' property for <Weight/>
-
-    // Great. Now, what should that property have as a value?
-    // I don't understand the english statemetn and don't understand 'have as a value' mean
-    // What did I suggest above?
-    // You don't see what I suggested or you don't see what properties can have values?
-
-    // Ok, a 'property' is a thing that has a /name/ and a /value/.
-    // For example:
-    //   <Weight mass="67"/>
-    // Here, there's a property called 'mass' with the value '67'.
-    // Do you accept that? (Don't try to understand it. Just accept it.)
-    // A 'property' is a thing that has a /name/ and a /value/. ok
-
-    // We want to add a property called 'list' to the call <ShowTodos/>
-    // You already did that. Which is very good.
-    // Now we have a property with a name but with no value. Right? yes
-
-    // In the text above, I suggested a value for the property. I'll paste it again:
-    //     list={ ["Feed the dog"] }
-    // Here, we use {} to switch back into JavaScript and then write an array.
-
-    // Is the the value that I suggested?
-    // Do you see a difference:
-    //   list="Feed the dog"
-    //   list={ ["Feed the dog"] }
-    // wouldn't this be the same in browser?
-    // No. Remember that we use 'map' on the 'list'.
-    // 'map' /only/ works for arrays.
-
-    // This is invalid:
-    // "Feed the dog".map(...)
-    // This is correct:
-    // ["Feed the dog"].map(...)
-
-    // ok, I think I just wish you tell the reason why you suggest
-    // you said I focus on unnessary parts sometimes
-    // Trying out difference things from what I suggest is completely fine
-    // and a good way to learn. Just remember that you aren't stuck if you
-    // haven't tried the suggestion. (And always be consciously aware when
-    // you're trying something new. Sometimes it seems you do it by accident.)
-    // ok
-
-    // I don't think we have time to make the other component today.
-    // You should create a new patch now. The comment message could be 'Finished ShowTodos'.
-
-    //.....showtodo is done?
-
-    // Pretty much. - how =.= Well, almost.
-    // Next we'll write a component for keep track of TODO items and for adding new TODO items.
-    // This new component will call ShowTodos.
-    // I don't understand..... line 671 this.props just like that? nothing else for it?
-    // We used that pattern before. Do you understand the other times we used it
-    // or are they all confusing?
-    // These are the other times we used that pattern:
-    //    const { mass } = this.props;
-    //    const { children } = this.props;
-    // I think maybe I don't fully understand the part of class APP extends Com.... doing
-    // Is this a different issue from 'this.props'?
-    // Did we resolve the 'this.props' confusion? - I think it's related issue
-    // In App, it called ShowTodos, right?
-    // Right.
-    // in ShowTodos, list is a name of a property
-    // Right. That's exactly right.
-    // I think I'm confused about App calls ShowTodos
-    // Right, App calls ShowTodos. With the property list={["Feed ..."]}.
-    // I think I'll just let it go....
-    // Do you think it'll be a problem in the future?
-    // Is there something you don't know how to do that you think you should be able to do?
-    // I don't quite know what I should be able to do now |O|
-    // You know how to get properties out of this.props, right? (You've done it many times now. It's not a trick question.)
-    // yeah, I guess so
-    // And you know how to set those properties when calling a component, right? (Again, not a trick question. And you've done it several times.)
-    // I'd like your answer to the above question.
-    // yeah, I guess so
-    // So you know how to get properties and you know how to set properties.
-    // Then you know everything about properties. There really isn't more to it.
-    // You have a complete understanding of properties.
-    // ok
-    // Properties are things with a name and a value. You can set them one place in
-    // the code and read them in another place. There's nothing more to it.
-    // ok
-
-    // This is a trick question:
-    // "0"==0           ===  True
-    // []==0            ===  True    // does this mean the array is empty, so it's 0?
-    // It means that JavaScript is weird and you shouldn't use the '==' function. ok
-    // "0"==[]          ===  False   // JavaScript is really weird sometimes. This is one of those cases.
-
-    // I'll go shower
-    // See you tomorrow. Today we managed to write -2 lines of code. :)
-
     const { list } = this.props;
     return <ul>{list.map(todoItem => <li>{todoItem}</li>)}</ul>;
+  }
+}
+
+// Ok, time to make the TodoApp. Let's make a component with that name.
+// Ok, this component needs some state. We would like to have the TODO items
+// in the state. Do you remember we've done something similar before? Can you
+// copy the code we used before and adept it to our needs?
+// Good. Now, what's should the type be for the TODO items? - strings
+// Good. That's the JavaScript type for 'strings'?
+// In other words, which type does ShowTodos expect? - array of string
+class TodoApp extends Component {
+  // Good. Now our starting state contains an empty list of TODO items.
+  // Let's define the render function.
+  // It should do two things: Show the TODOs, have an input field for adding new todos.
+  // Let's start by showing the TODOs. We'll do this using 'ShowTodos'.
+  // Take a guess at how this is done. Guessing wrong is fine.
+  // Do you mean in TodoApp call ShowTodos?
+  // Yes. ShowTodos takes a list of TODO items and renders them.
+  // Here in TodoApp, we have a list of TODO items in the state.
+  // We want to take that list and hand it to ShowTodos.
+  // hand it to ShowTodos means to call ShowTodos?
+  // Yes.
+  // Good so far.
+  // Right now the code is using a constant list of TODO items: ["Feed the dog"]
+  // We would like to use the list from our state. How do we do that?
+  // Have we already written some code which does something similar? Can
+  // we copy that code and adapt it to our needs?
+  // Good. Now how do we give TODO to ShowTodos? - don't know
+  // Can you find some code we've written before where a JavaScript variable
+  // was used as the value of a property? - can't be sure if can find
+  // You copied some code with 'myText' in it before. Is myText used in any properties?
+  state = {
+    TODO: []
+  };
+
+  // this declares a function called 'handleChange'.
+  // In the other component, this function is indeed used as the value for a
+  // property. However, we just want to use a variable instead.
+  handleChange = evt => {
+    this.setState({ myText: evt.target.value });
+  };
+
+  render() {
+    const { TODO } = this.state;
+    // It might help if we made a list of the properties in the HTML below.
+    // Can you help me extend the list? Which properties do you see?
+    // Are you thinking or are you waiting? - thinking, looking
+    // I don't understand what you're going to do, in this class only?
+    // Right now I'm just asking you to list all the properties. (In the HTML code this function is returning.)
+    // Now you're changing things...
+    // You're on the right track.
+    // Can you help me complete the list of properties?
+    //
+    // Name        Value
+    // className   "App-intro"
+    // list        ["Feed the dog"]
+    // value       myText
+    // onChange    this.handleChange
+    //
+    // Excellent!
+    // So, 'myText' is a variable and we use it as the value in a property.
+    // Can we do the same with our TODO state? Can we pass it as a property to ShowTodos?
+    // Do we want to give our TODO state to the <input> component? - why <input> is a component?
+    // <input> behaves like a component, doesn't it?
+    // TODO is an array of strings. Which component takes an array of strings?
+
+    // sorry, I can't do it today
+    // It's cold (we don't have heat in room) quite far away, I can tell
+    // I need a hot shower
+    // Oh?
+    // We're really close, though. Well, maybe a bit away.
+    // Ok, see you tomorrow.
+
+    return (
+      <p className="App-intro">
+        <ShowTodos list={["Feed the dog"]} />
+      </p>
+      <span>
+        <input value={ TODO } onChange={this.handleChange} />
+        Input has {N} characters
+      </span>
+    );
   }
 }
 
