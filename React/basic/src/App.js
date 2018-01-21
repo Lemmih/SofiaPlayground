@@ -551,8 +551,28 @@ class ShowTodos extends Component {
   // ul = unordered list
   // li = list item
   render() {
-    const { list } = this.props;
-    return <ul>{list.map(todoItem => <li>{todoItem}</li>)}</ul>;
+    const { list, remove } = this.props;
+    // Here we call 'remove', right?
+    // Do we call it with any arguments?
+    // (idx)?
+    // Yep. Do you see what 'idx' is?
+    // I don't understand the question
+    // If TODO=['dance', 'drink', 'sex'] and you click on 'drink', what value
+    // do you guess will be in 'idx'?
+    // 1
+    // Great! That's right. What if you clicked on 'sex' instead?
+    // 2
+    // Excellent. So 'idx' is the index. And it's the argument for 'remove' which
+    // is actually the 'handleRemove' function, right?
+    // yeah
+    // So now we can go to 'handleRemove' and use that index when deleting the TODO item.
+    return (
+      <ul>
+        {list.map((todoItem, idx) => (
+          <li onClick={() => remove(idx)}>{todoItem}</li>
+        ))}
+      </ul>
+    );
   }
 }
 
@@ -564,111 +584,85 @@ class ShowTodos extends Component {
 // Good. That's the JavaScript type for 'strings'?
 // In other words, which type does ShowTodos expect? - array of string
 class TodoApp extends Component {
-  // Good. Now our starting state contains an empty list of TODO items.
-  // Let's define the render function.
-  // It should do two things: Show the TODOs, have an input field for adding new todos.
-  // Let's start by showing the TODOs. We'll do this using 'ShowTodos'.
-  // Take a guess at how this is done. Guessing wrong is fine.
-  // Do you mean in TodoApp call ShowTodos?
-  // Yes. ShowTodos takes a list of TODO items and renders them.
-  // Here in TodoApp, we have a list of TODO items in the state.
-  // We want to take that list and hand it to ShowTodos.
-  // hand it to ShowTodos means to call ShowTodos?
-  // Yes.
-  // Good so far.
-  // Right now the code is using a constant list of TODO items: ["Feed the dog"]
-  // We would like to use the list from our state. How do we do that?
-  // Have we already written some code which does something similar? Can
-  // we copy that code and adapt it to our needs?
-  // Good. Now how do we give TODO to ShowTodos? - don't know
-  // Can you find some code we've written before where a JavaScript variable
-  // was used as the value of a property? - can't be sure if can find
-  // You copied some code with 'myText' in it before. Is myText used in any properties?
+  // Our TodoApp component contains an array of TODO items.
+  // ok
   state = {
-    TODO: []
+    TODO: [],
+    myText: ""
   };
 
-  // this declares a function called 'handleChange'.
-  // In the other component, this function is indeed used as the value for a
-  // property. However, we just want to use a variable instead.
   handleChange = evt => {
     this.setState({ myText: evt.target.value });
   };
+  handleKeyPress = evt => {
+    const { TODO, myText } = this.state;
+    if (evt.key === "Enter") {
+      console.log("Enter was pressed.");
+      this.setState({
+        myText: "",
+        TODO: TODO.concat([myText])
+      });
+    }
+  };
+
+  handleRemove = idx => {
+    const { TODO } = this.state;
+
+    // You had no way of knowing this but the 'splice' function
+    // directly modifies the TODO variable. So we do this step
+    // first and then update the state using the new TODO variable.
+    TODO.splice(idx, 1);
+    // Here we set the new state to use the modified TODO variable.
+    this.setState({ TODO: TODO });
+  };
 
   render() {
-    const { TODO } = this.state;
-    // It might help if we made a list of the properties in the HTML below.
-    // Can you help me extend the list? Which properties do you see?
-    // Are you thinking or are you waiting? - thinking, looking
-    // I don't understand what you're going to do, in this class only?
-    // Right now I'm just asking you to list all the properties. (In the HTML code this function is returning.)
-    // Now you're changing things...
-    // You're on the right track.
-    // Can you help me complete the list of properties?
-    //
-    // Name        Value
-    // className   "App-intro"
-    // list        ["Feed the dog"]
-    // value       myText
-    // onChange    this.handleChange
-    //
-    // Excellent!
-    // So, 'myText' is a variable and we use it as the value in a property.
-    // Can we do the same with our TODO state? Can we pass it as a property to ShowTodos?
-    // Do we want to give our TODO state to the <input> component? - why <input> is a component?
-    // <input> behaves like a component, doesn't it?
-    // TODO is an array of strings. Which component takes an array of strings?
-
-    // sorry, I can't do it today
-    // It's cold (we don't have heat in room) quite far away, I can tell
-    // I need a hot shower
-    // Oh?
-    // We're really close, though. Well, maybe a bit away.
-    // Ok, see you tomorrow.
+    const { TODO, myText } = this.state;
+    const N = myText.length; // This line defines the 'N' variable.
 
     return (
       <p className="App-intro">
-        <ShowTodos list={["Feed the dog"]} />
+        <ShowTodos list={TODO} remove={this.handleRemove} />
+        <span>
+          <input
+            value={myText}
+            onChange={this.handleChange}
+            onKeyPress={this.handleKeyPress}
+          />
+          Input has {N} characters
+        </span>
       </p>
-      <span>
-        <input value={ TODO } onChange={this.handleChange} />
-        Input has {N} characters
-      </span>
     );
   }
 }
+
+// Do you have a mental model of what will happen when you run this code
+// in the browser?
+// which code? line 578 or 593?
+// The current code. Like, what would happen if you hit ctrl+s right now?
+// see feed the dog
+// Alright, does this expectation match reality?
+// yes
+// Good.
+// What about now? Do you have an expectation? And does it match reality?
+// I think it will show nothing, because in TodoApp, TODO is an empty array
+// Excellent. Is that what happens?
+// Yes
+// Wonderful. This means you understand the code.
+// So, let's imagine that TODO changed to be ["Take exam"], what do you expect
+// the browser result to be?
+// Take exam
+// Excellent. So now we just need a way to add items to the TODO state and
+// the todo app will be nearly finished, right?
+// Yes.
+// We need an input field so let's start by copying the code from the Length component.
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
         <p className="App-intro">
-          <ShowTodos list={["Feed the dog"]} />
-        </p>
-        <p className="App-intro">
-          <Length />
-        </p>
-        <p className="App-intro">
-          <Counter />
-          <Counter />
-          <Counter />
-        </p>
-        <p className="App-intro">
-          <Weight mass="67" />
-          <br />
-          <Weight mass="63" />
-          <br />
-          <Weight />
-        </p>
-        <p className="App-intro">
-          Bold with nothing inside: <Bold />
-          <br />
-          Bold with something inside: <Bold>Something</Bold>
-          <br />
+          <TodoApp />
         </p>
       </div>
     );
